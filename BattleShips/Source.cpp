@@ -1,35 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
+
+#include "Battleships.h"
+
 
 int main(){
 
-	int hit_board[10][10] = {
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	};
-
-	char board[10][10] = {
-		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', 'A', 'C', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', ' ', 'C', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', ' ', 'C', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', ' ', ' ', ' ', ' ', 'D', 'D', 'D', 'D', ' ',
-		'B', 'B', 'B', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '
-	};
-
-	int x, y;
+	position shoot_pos;
 
 	int All_ships = 0;
 
@@ -52,16 +27,16 @@ int main(){
 
 		printf("\nWhere do you want to shoot? (x and y coord.): ");
 
-		scanf_s("%d %d", &x, &y);
+		scanf_s("%d %d", &shoot_pos.x, &shoot_pos.y);
 
-		if (hit_board[y][x]) {
+		if (hit_board[shoot_pos.y][shoot_pos.x]) {
 			printf("\n\nYou've already hit this tile!\n");
 		}
 		else {
 
-			hit_board[y][x] = 1;
+			hit_board[shoot_pos.y][shoot_pos.x] = 1;
 
-			switch (board[y][x]) {
+			switch (board[shoot_pos.y][shoot_pos.x]) {
 			case 'A': printf("\nHit!\n");
 				A_ship++;
 				All_ships++;
@@ -103,6 +78,9 @@ int main(){
 	}
 }		
 
+	getchar();
+
+	system("CLS");
 	printf("\nCONGRATULATIONS!\nAll Ships have been destroyed!\n");
 
 	for (int i = 0; i < 10; i++) {
@@ -119,7 +97,6 @@ int main(){
 
 	printf("\nPress any key to continue...");
 
-	getchar();
 	getchar();
 
 	system("CLS");

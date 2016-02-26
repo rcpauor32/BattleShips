@@ -18,12 +18,9 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Battleships.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Battleships.h">
+    <ClInclude Include="rand_bs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
