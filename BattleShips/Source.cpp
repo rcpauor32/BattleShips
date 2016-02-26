@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
 
@@ -100,7 +101,30 @@ int main(){
 		printf("\nThe D Ship has been SLAIN!\n");
 		D_ship--;
 	}
-}											
+}		
+
+	printf("\nCONGRATULATIONS!\nAll Ships have been destroyed!\n");
+
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			if (hit_board[i][j]) {
+				printf("%c ", board[i][j]);
+			}
+			else {
+				printf("* ");
+			}
+		}
+		printf("\n");
+	}
+
+	printf("\nPress any key to continue...");
+
+	getchar();
+	getchar();
+
+	system("CLS");
+
+	printf("\n\n\n\n\n\t\t\t\tYOU ROCK! :D\n\t\t\t\t    Bye");
 
 	getchar();
 	return 0;
